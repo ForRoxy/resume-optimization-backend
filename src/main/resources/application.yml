@@ -1,0 +1,28 @@
+
+# 服务端口
+server:
+  port: 8888
+
+# Spring配置
+spring:
+
+  # 数据库配置
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/db_resume?serverTimezone=GMT%2b8&useSSL=false
+    username: root
+    password: 323963
+
+  servlet:
+    multipart:
+      # 最大文件传输大小
+      max-file-size: 100MB
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+
+#是否开启推荐算法
+useRecommend: false
+
