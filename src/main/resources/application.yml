@@ -1,7 +1,8 @@
 
 # 服务端口
 server:
-  port: 8888
+  port: 8443
+
 
 # Spring配置
 spring:
@@ -12,6 +13,19 @@ spring:
     url: jdbc:mysql://localhost:3306/db_resume?serverTimezone=GMT%2b8&useSSL=false
     username: root
     password: 323963
+
+  # Redis
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    lettuce:
+      pool:
+        min-idle: 0
+        max-active: 8
+        max-idle: 8
+        max-wait: -1ms
+    connect-timeout: 30000ms
 
   servlet:
     multipart:
@@ -25,4 +39,6 @@ mybatis:
 
 #是否开启推荐算法
 useRecommend: false
-
+resume:
+  upload:
+    dir: E:/upload/resumes/
