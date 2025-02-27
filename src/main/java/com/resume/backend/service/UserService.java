@@ -10,6 +10,7 @@ import com.resume.backend.entity.UserRe;
 import com.resume.backend.mapper.UserMapper;
 import com.resume.backend.utils.TokenUtils;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -27,9 +28,11 @@ public class UserService {
     private final RestTemplate restTemplate;
     private final ObjectMapper objectMapper = new ObjectMapper();
 
-    // 微信小程序的 AppID 和 AppSecret（建议放在配置文件中）
-    private final String WECHAT_APP_ID = "wxaed9ec68e53c3875";
-    private final String WECHAT_APP_SECRET = "7cfe2ed5ad2cc3b53a3a8448ea63fbd0";
+    // 微信小程序的 AppID 和 AppSecret
+    @Value("${wechat.appId}")
+    private String WECHAT_APP_ID;
+    @Value("${wechat.appSecret}")
+    private String WECHAT_APP_SECRET;
 
     /**
      * 微信登录或注册，使用 LoginForm 作为参数。

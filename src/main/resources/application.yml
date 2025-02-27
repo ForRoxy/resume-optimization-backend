@@ -42,3 +42,8 @@ useRecommend: false
 resume:
   upload:
     dir: E:/upload/resumes/
+wechat:
+  appId : "wxaed9ec68e53c3875"
+  appSecret : "7cfe2ed5ad2cc3b53a3a8448ea63fbd0"
+
+
